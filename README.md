@@ -1,73 +1,76 @@
-# Welcome to your Lovable project
+# StudyFlow
 
-## Project info
+A small React and TypeScript study-tracking interface built with Vite.
 
-**URL**: https://lovable.dev/projects/c2f89c6d-c704-43e3-89f9-01d2350bedc8
+The current app lets you add subjects, view them on a dashboard, and remove them again. The data is held in React state for the current browser session.
 
-## How can I edit this code?
+## Current features
 
-There are several ways of editing your application.
+- Add a subject
+- Display all added subjects
+- Show the current subject count
+- Remove a subject
+- Responsive card-based layout
 
-**Use Lovable**
+## Tech stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/c2f89c6d-c704-43e3-89f9-01d2350bedc8) and start prompting.
+- React 18
+- TypeScript
+- Vite
+- Tailwind CSS / utility libraries from the project template
 
-Changes made via Lovable will be committed automatically to this repo.
+## Run locally
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The Vite development server uses port 8080 in the current configuration.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Production build
 
-**Use GitHub Codespaces**
+```bash
+npm run build
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Preview a production build with:
 
-## What technologies are used for this project?
+```bash
+npm run preview
+```
 
-This project is built with:
+Run the linter with:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```bash
+npm run lint
+```
 
-## How can I deploy this project?
+## GitHub Pages
 
-Simply open [Lovable](https://lovable.dev/projects/c2f89c6d-c704-43e3-89f9-01d2350bedc8) and click on Share -> Publish.
+The Vite configuration uses the repository base path:
 
-## Can I connect a custom domain to my Lovable project?
+```text
+/chetan.github.io/
+```
 
-Yes, you can!
+The repository contains a GitHub Pages deployment workflow.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Project structure
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+```text
+chetan.github.io/
+├── src/
+│   ├── App.tsx
+│   └── main.tsx
+├── index.html
+├── style.css
+├── package.json
+├── package-lock.json
+├── vite.config.ts
+└── README.md
+```
+
+## Current scope
+
+This repository is a simple frontend experiment. It does not currently include authentication, a backend, a database, AI API integration, or persistent study data.
