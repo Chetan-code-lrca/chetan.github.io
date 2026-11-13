@@ -1,20 +1,27 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { loadSubjects, saveSubjects } from './lib/subject-storage.mjs';
 import '../style.css';
 
 function App() {
-  const [subjects, setSubjects] = useState<string[]>([]);
+  const [subjects, setSubjects] = useState<string[]>(() => loadSubjects());
   const [newSubject, setNewSubject] = useState('');
+  const [storageAvailable, setStorageAvailable] = useState(true);
+
+  useEffect(() => {
+    setStorageAvailable(saveSubjects(subjects));
+  }, [subjects]);
 
   const handleAddSubject = (e: React.FormEvent) => {
     e.preventDefault();
-    if (newSubject.trim()) {
-      setSubjects([...subjects, newSubject]);
+    const subject = newSubject.trim();
+    if (subject) {
+      setSubjects((current) => [...current, subject]);
       setNewSubject('');
     }
   };
 
   const handleRemoveSubject = (index: number) => {
-    setSubjects(subjects.filter((_, i) => i !== index));
+    setSubjects((current) => current.filter((_, i) => i !== index));
   };
 
   return (
@@ -114,6 +121,21 @@ function App() {
             </button>
           </form>
         </div>
+
+        <p
+          role="status"
+          aria-live="polite"
+          style={{
+            margin: '0 0 24px',
+            textAlign: 'center',
+            color: 'rgba(255,255,255,0.9)',
+            fontSize: '0.9rem'
+          }}
+        >
+          {storageAvailable
+            ? 'Subjects are saved in this browser.'
+            : 'Browser storage is unavailable. Subjects will not persist after a reload.'}
+        </p>
 
         {/* Subjects Grid */}
         <div>
