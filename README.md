@@ -2,7 +2,7 @@
 
 A small React and TypeScript study-tracking interface built with Vite.
 
-The current app lets you add subjects, view them on a dashboard, and remove them again. The data is held in React state for the current browser session.
+The current app lets you add subjects, view them on a dashboard, and remove them again. Subjects are saved in this browser with `localStorage`, so they remain after a reload without requiring an account or backend.
 
 ## Current features
 
@@ -10,6 +10,8 @@ The current app lets you add subjects, view them on a dashboard, and remove them
 - Display all added subjects
 - Show the current subject count
 - Remove a subject
+- Restore the subject list after a page reload using browser-local storage
+- Handle unavailable or malformed browser storage without crashing
 - Responsive card-based layout
 
 ## Tech stack
@@ -38,6 +40,12 @@ Preview a production build with:
 
 ```bash
 npm run preview
+```
+
+Run the automated storage tests with:
+
+```bash
+npm test
 ```
 
 Run the linter with:
@@ -73,4 +81,4 @@ chetan.github.io/
 
 ## Current scope
 
-This repository is a simple frontend experiment. It does not currently include authentication, a backend, a database, AI API integration, or persistent study data.
+This repository is a small frontend experiment. The subject list is stored only in the current browser profile; it is not synced across devices and is not backed by a server. If browser storage is blocked or unavailable, subjects remain available only for the current page session. The app does not currently include authentication, a backend, a database, or AI API integration.
